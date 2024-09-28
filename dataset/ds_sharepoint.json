@@ -1,0 +1,22 @@
+{
+	"name": "ds_sharepoint",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sharepoint",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Hydration File.xlsx",
+				"container": "sharepoint"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

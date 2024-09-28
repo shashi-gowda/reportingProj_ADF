@@ -1,0 +1,17 @@
+{
+	"name": "ls_onPremsSqlserver",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=DESKTOP-QBLMT5V\\SQLEXPRESS;initial catalog=reportingProject",
+			"userName": "DESKTOP-QBLMT5V\\ADMIN",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2OWVhYmJmNC0yMDNlLTRhMTctYjNiYi0xZjQyMDU1MTU2YzMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IR-onPrems",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

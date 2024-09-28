@@ -1,0 +1,13 @@
+{
+	"name": "ds_onPremsSqlServer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_onPremsSqlserver",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,7 @@
+{
+	"name": "IR-onPrems",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "SHIR for reportingProj"
+	}
+}

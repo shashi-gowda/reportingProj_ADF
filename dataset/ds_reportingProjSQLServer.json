@@ -1,0 +1,17 @@
+{
+	"name": "ds_reportingProjSQLServer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_reportingProjSQLServer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "client",
+			"table": "hydration"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
