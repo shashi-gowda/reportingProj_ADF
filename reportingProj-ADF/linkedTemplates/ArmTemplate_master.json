@@ -1,0 +1,119 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "reportingProj-ADF"
+		},
+		"ls_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blob'"
+		},
+		"ls_onPremsSqlserver_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_onPremsSqlserver'",
+			"defaultValue": "integrated security=True;Data Source=DESKTOP-QBLMT5V\\SQLEXPRESS;Initial Catalog=reportingProject"
+		},
+		"ls_onPremsSqlserver_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_onPremsSqlserver'"
+		},
+		"ls_reportingProjSQLServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_reportingProjSQLServer'"
+		},
+		"ls_reportingProj_DBW_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_reportingProj_DBW'"
+		},
+		"ls_sharepoint_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sharepoint'"
+		},
+		"ls_onPremsSqlserver_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "DESKTOP-QBLMT5V\\ADMIN"
+		},
+		"ls_reportingProj_DBW_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0923-025914-jwgkr9v2"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "reportingProj-ADF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_blob_connectionString": {
+						"value": "[parameters('ls_blob_connectionString')]"
+					},
+					"ls_reportingProjSQLServer_connectionString": {
+						"value": "[parameters('ls_reportingProjSQLServer_connectionString')]"
+					},
+					"ls_reportingProj_DBW_accessToken": {
+						"value": "[parameters('ls_reportingProj_DBW_accessToken')]"
+					},
+					"ls_sharepoint_connectionString": {
+						"value": "[parameters('ls_sharepoint_connectionString')]"
+					},
+					"ls_onPremsSqlserver_connectionString": {
+						"value": "[parameters('ls_onPremsSqlserver_connectionString')]"
+					},
+					"ls_onPremsSqlserver_password": {
+						"value": "[parameters('ls_onPremsSqlserver_password')]"
+					},
+					"ls_reportingProj_DBW_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('ls_reportingProj_DBW_properties_typeProperties_existingClusterId')]"
+					},
+					"ls_onPremsSqlserver_properties_typeProperties_userName": {
+						"value": "[parameters('ls_onPremsSqlserver_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "reportingProj-ADF_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'reportingProj-ADF_ArmTemplate_0')]"
+			]
+		}
+	]
+}
