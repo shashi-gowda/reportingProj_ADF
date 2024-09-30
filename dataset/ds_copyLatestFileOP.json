@@ -1,0 +1,22 @@
+{
+	"name": "ds_copyLatestFileOP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "copylatestfileop"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
