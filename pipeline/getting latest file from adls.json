@@ -100,7 +100,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@greater(\n    formatDateTime(activity('Get Metadata2').output.lastModified, 'yyyyMMddHHmmss'), \n    formatDateTime(variables('LastModifiedDate'), 'yyyyMMddHHmmss')\n    )",
+									"value": "@greater(\n    formatDateTime(activity('Get Metadata2').output.lastModified, 'yyyyMMddHHmmss'), \n    formatDateTime(variables('prevModifiedDate'), 'yyyyMMddHHmmss')\n    )",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
@@ -141,7 +141,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "LastModifiedDate",
+								"variableName": "prevModifiedDate",
 								"value": {
 									"value": "@activity('Get Metadata2').output.lastModified",
 									"type": "Expression"
@@ -227,7 +227,7 @@
 			"LatestFileName": {
 				"type": "String"
 			},
-			"LastModifiedDate": {
+			"prevModifiedDate": {
 				"type": "String",
 				"defaultValue": "1990-01-01T05:12:22Z"
 			}
