@@ -1,0 +1,9 @@
+{
+	"name": "scratch-ADF",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7c885b35-c4d3-4927-9d96-babf510263cd",
+		"tenantId": "ac783047-ce73-4fba-9e82-978d4195a1a1"
+	}
+}
